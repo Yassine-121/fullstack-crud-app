@@ -1,5 +1,6 @@
 package com.yassine.backend.services;
 
+import com.yassine.backend.exception.ResourceNotFoundException;
 import com.yassine.backend.model.Product;
 import com.yassine.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,9 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Optional<Product> getProductById(Long id) {
-        return productRepository.findById(id);
+    public Product getProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
     }
 
     public Product createProduct(Product product) {
@@ -36,7 +38,7 @@ public class ProductService {
             product.setQuantity(updatedProduct.getQuantity());
             return productRepository.save(product);
         } else {
-            throw new RuntimeException("Product not found with id: " + id);
+            throw new ResourceNotFoundException("Product not found with id: " + id);
         }
     }
 
