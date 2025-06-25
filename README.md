@@ -19,6 +19,10 @@ This project is a full-stack CRUD application built with:
 
 ## 🚀 Setup Instructions
 
+### Clone the repository
+    git clone git@github.com:Yassine-121/fullstack-crud-app.git
+    cd fullstack-crud-app
+
 ### Backend
 
 1. **Configure PostgreSQL**
