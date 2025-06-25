@@ -10,6 +10,7 @@ import {
     Button,
     Box,
 } from "@mui/material"
+import {showToast} from "../components/Toast";
 
 const Login = () => {
     const [form, setForm] = useState({ username: "", password: "" })
@@ -25,8 +26,9 @@ const Login = () => {
             const res = await api.post("/auth/login", form)
             saveToken(res.data.token)
             navigate("/products")
+            showToast("Welcome !!", 'success');
         } catch (err) {
-            console.error(err)
+            showToast(err.response.data, 'error');
         }
     }
 
