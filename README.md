@@ -42,7 +42,7 @@ This project is a full-stack CRUD application built with:
     - Duplicate `.env.example` and rename it to `.env`.
     - Replace the placeholder with your actual backend API URL:
       ```env
-      API_BASE_URL=http://localhost:8080/api
+      REACT_APP_API_BASE_URL=http://localhost:8080/api
       ```
 
 2. **Install dependencies**
